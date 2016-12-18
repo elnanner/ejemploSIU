@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!-- <web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	      version="3.0">-->
+
+<!--<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+version="3.0">-->
+ 
+
+
+
+
+ <!--  <!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >-->
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+
+
+  <display-name>Archetype Created Web Application</display-name>
+  <listener>
+  	<!--  <listener-class>initializer.InitializeBDSIU</listener-class>-->
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+  	<listener-class>initializer.PruebaListener</listener-class>
+  </listener>
+  
+  <!--  tipo rest -->
+  <servlet>
+ <servlet-name>springrest</servlet-name>
+ <servlet-class>
+  org.springframework.web.servlet.DispatcherServlet
+ </servlet-class>
+ <!--  NUESTROOOO... PARA EL BEAN EN LISTENER (parece al pedo) -->
+<!--  <init-param>
+<param-name>contextConfigLocation</param-name>
+  <param-value>/WEB-INF/*.xml</param-value>
+</init-param> -->
+ <!--  fin nuestro -->
+ <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+ <servlet-name>springrest</servlet-name>
+ <url-pattern>/</url-pattern>
+</servlet-mapping>
+<!--  fin tipo rest -->
+
+
+
+<!--  nuestro para la config de hibernate, etc 
+ <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+</context-param>-->
+</web-app>
